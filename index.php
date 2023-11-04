@@ -41,7 +41,8 @@
       </div>
     <div class="container p-5">
         <h1 class="text-white text-center">Datos</h1>
-        <table class="table table-success">
+    <form action="./PHP/edit.php">
+    <table class="table table-success">
   <thead>
     <tr>
       <th scope="col">Id</th>
@@ -54,16 +55,23 @@
   <tbody>
   <?php foreach($datos as $i){ ?>
     <tr>
+      <input class="noneD" type="text" value="<?php echo $i['id'];?>" name="editId">
       <th scope="row"><?php echo $i['id'];?> </th>
-      <td><input type="text" value="<?php $author = $i['author']; echo $author;?>" name='editAuthor'></td>
-      <td><input type="text" value="<?php $tittle = $i['tittle']; echo $tittle;?>"></td>
-      <td><input type="text" value="<?php $description = $i['description']; echo $description;?>"></td>
-      <td><a class="btn btn-primary" href="PHP/edit.php?id=<?php echo $i['id'];?>&author=<?php echo $author;?>&tittle=<?php echo $tittle;?>&description=<?php echo $description;?>" class="btn btn-primary">Edit</a></td>
+      <td><input type="text" value="<?php  echo $i['author']; ?>" name='editAuthor'></td>
+      <td><input type="text" value="<?php $tittle = $i['tittle']; echo $tittle;?>" name='editTittle'></td>
+      <td><input type="text" value="<?php $description = $i['description']; echo $description;?>" name='editDescription'></td>
+      <script>
+        nombre = document.getElementById("name");
+        console.log(nombre.value);
+        document.cookie = "variable = " + nombre.value;
+      </script>
+      <td><button type="submit" class="btn btn-primary">Edit</button></td>
       <td><a class="btn btn-danger" href="PHP/delete.php?id=<?php echo $i['id'];?>" class="btn btn-danger">Delete</a></td>
     <?php } ?> 
     </tr>
   </tbody>
 </table>
+    </form>
     </div>
    <script src="js/bootstrap.js"></script>
 </body>

@@ -9,3 +9,8 @@ body{
     border: 2px dashed white;
     border-radius: 20px;
 }
+
+.noneD
+{
+    display: none;
+}
