@@ -1,7 +1,7 @@
 <?php
-    include "PHP/conexion.php";
+    include "PHP/connection.php";
     
-    $datos = $conectar->query("SELECT * FROM library");
+    $datos = $connect->query("SELECT * FROM library");
     /*
     while($dato = $sql->fetch()){
         echo $dato['correo']. " ".$dato
@@ -36,7 +36,7 @@
             <label  class="form-label">Description</label>
             <input type="text" class="form-control" name="description">
           </div>
-          <button type="submit" class="btn btn-outline-primary">Create</button>
+          <button type="submit" class="btn btn-primary">Create</button>
         </form>
       </div>
     <div class="container p-5">
@@ -48,18 +48,18 @@
       <th scope="col">Author</th>
       <th scope="col">Tittle</th>
       <th scope="col">Description</th>
-      <th scope="col">Operations</th>
+      <th scope="col" colspan="2">Operations</th>
     </tr>
   </thead>
   <tbody>
   <?php foreach($datos as $i){ ?>
     <tr>
       <th scope="row"><?php echo $i['id'];?> </th>
-      <td><?php echo $i['author'];?></td>
-      <td><?php echo $i['tittle'];?></td>
-      <td><?php echo $i['description'];?></td>
-      <td><a class="btn btn-primary" href="PHP/editar.php?id=<?php echo $i['id'];?>" class="btn btn-primary">Editar</a></td>
-      <td><a class="btn btn-danger" href="PHP/eliminar.php?id=<?php echo $i['id'];?>" class="btn btn-danger">Eliminar</a></td>
+      <td><input type="text" value="<?php $author = $i['author']; echo $author;?>" name='editAuthor'></td>
+      <td><input type="text" value="<?php $tittle = $i['tittle']; echo $tittle;?>"></td>
+      <td><input type="text" value="<?php $description = $i['description']; echo $description;?>"></td>
+      <td><a class="btn btn-primary" href="PHP/edit.php?id=<?php echo $i['id'];?>&author=<?php echo $author;?>&tittle=<?php echo $tittle;?>&description=<?php echo $description;?>" class="btn btn-primary">Edit</a></td>
+      <td><a class="btn btn-danger" href="PHP/delete.php?id=<?php echo $i['id'];?>" class="btn btn-danger">Delete</a></td>
     <?php } ?> 
     </tr>
   </tbody>

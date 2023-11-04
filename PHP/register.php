@@ -38,7 +38,7 @@
     $tittle = $_POST['tittle'];
     $description = $_POST['description'];
 
-    $send = $connect->prepare("INSERT INTO usuarios VALUES (null, ? , ?, ?)");
+    $send = $connect->prepare("INSERT INTO library VALUES (null, ? , ?, ?)");
 
     $send->bindParam(1, $author);
     $send->bindParam(2, $tittle);
