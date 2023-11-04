@@ -44,8 +44,7 @@ echo $i['correo']. "" .$i['password']."<br>";*/
   </div>
   <div class="container p-5">
     <h1 class="text-white text-center">Datos</h1>
-    <form action="./PHP/edit.php">
-      <table class="table table-success">
+    <table class="table table-success">
         <thead>
           <tr>
             <th scope="col">Id</th>
@@ -57,24 +56,26 @@ echo $i['correo']. "" .$i['password']."<br>";*/
         </thead>
         <tbody>
           <?php foreach ($datos as $i) { ?>
-            <tr>
-              <input class="noneD" type="text" value="<?php echo $i['id']; ?>" name="editId">
-              <th scope="row">
-                <?php echo $i['id']; ?>
-              </th>
-              <td><input class="form-control" type="text" value="<?php echo $i['author']; ?>" name='editAuthor'></td>
-              <td><input class="form-control" type="text" value="<?php $tittle = $i['tittle'];
-              echo $tittle; ?>" name='editTittle'></td>
-              <td><textarea class="form-control" name='editDescription'><?php $description = $i['description'];
-              echo $description; ?></textarea></td>
-              <td><button type="submit" class="btn btn-primary">Edit</button></td>
-              <td><a class="btn btn-danger" href="PHP/delete.php?id=<?php echo $i['id']; ?>"
-                  class="btn btn-danger">Delete</a></td>
+            <form action="./PHP/edit.php">
+              <tr>
+                <input class="noneD" type="text" value="<?php echo $i['id']; ?>" name="editId">
+                <th scope="row">
+                  <?php echo $i['id']; ?>
+                </th>
+                <td><input class="form-control" type="text" value="<?php echo $i['author']; ?>" name='editAuthor'></td>
+                <td><input class="form-control" type="text" value="<?php $tittle = $i['tittle'];
+                echo $tittle; ?>" name='editTittle'></td>
+                <td><textarea class="form-control" name='editDescription'><?php $description = $i['description'];
+                echo $description; ?></textarea></td>
+                <td><button type="submit" class="btn btn-primary">Edit</button></td>
+                <td><a class="btn btn-danger" href="PHP/delete.php?id=<?php echo $i['id']; ?>"
+                    class="btn btn-danger">Delete</a></td>
+              </tr>
+            </form>
             <?php } ?>
-          </tr>
+          
         </tbody>
       </table>
-    </form>
   </div>
   <script src="js/bootstrap.js"></script>
 </body>
